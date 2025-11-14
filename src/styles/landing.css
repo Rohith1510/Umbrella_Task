@@ -1,0 +1,184 @@
+.landing-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 20px;
+    background-image: url('../images/colors.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+.landing-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.3);
+    z-index: 1;
+}
+
+.landing-content {
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
+    width: 100%;
+    text-align: center;
+}
+
+/* .content {
+    background: rgba(255, 255, 255, 0.95);
+    padding: 60px 40px;
+    border-radius: 20px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(10px);
+} */
+
+.title {
+    font-size: 5.5rem;
+    color: #f2f3f5;
+    margin-bottom: 20px;
+    font-weight: 700;
+}
+
+/* Style only the word 'Umbrella' inside the title */
+.title-umbrella {
+    font-family: 'Pacifico';
+    font-size: 1.06em; /* slightly larger than surrounding text */
+    transform: translateY(-2px);
+    text-shadow: 0 1px 0 rgba(0,0,0,0.03);
+    color:#af043a;
+     text-shadow: 0 2px 8px rgba(0, 0, 0, 0.8),
+                 0 4px 16px rgba(0, 0, 0, 0.6),
+                 0 0 20px rgba(209, 6, 70, 0.6);
+    
+}
+
+.subtitle-umbrella {
+    font-family: 'Pacifico';
+    font-size: 1.2em;
+    transform: translateY(-1px);
+    text-shadow: 0 1px 0 rgba(0,0,0,0.03);
+    color:#af043a;
+     text-shadow: 0 2px 8px rgba(0, 0, 0, 0.8),
+                 0 4px 16px rgba(0, 0, 0, 0.6),
+                 0 0 20px rgba(209, 6, 70, 0.6);
+    
+}
+
+.subtitle {
+    font-size: 1.7rem;
+    color: #ffffff;
+    margin-bottom: 20px;
+    font-weight: 700;
+    
+}
+
+.description {
+    font-size: 1.1rem;
+    color: #4a5568;
+    max-width: 700px;
+    margin: 0 auto 40px;
+    line-height: 1.6;
+}
+.cta-button {
+    /* Strong, modern CTA that fits the background artwork */
+    background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 40%, #764ba2 100%);
+    color: #ffffff;
+    border: none;
+    padding: 16px 48px;
+    font-size: 1.125rem;
+    font-weight: 700;
+    border-radius: 14px;
+    cursor: pointer;
+    transition: transform 180ms ease, box-shadow 180ms ease, opacity 180ms ease;
+    box-shadow: 0 12px 30px rgba(76, 29, 149, 0.18), inset 0 -2px 8px rgba(0,0,0,0.06);
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.cta-button::before {
+    /* simple upload glyph to the left (using a small inline SVG) */
+    content: '';
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23FFFFFF' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4'/%3E%3Cpolyline points='17 8 12 3 7 8'/%3E%3Cline x1='12' y1='3' x2='12' y2='15'/%3E%3C/svg%3E");
+    background-size: 20px 20px;
+    background-repeat: no-repeat;
+    background-position: center;
+    transform: translateY(0);
+}
+
+.cta-button:hover {
+    transform: translateY(-4px) scale(1.02);
+    box-shadow: 0 20px 50px rgba(76, 29, 149, 0.25), inset 0 -2px 8px rgba(0,0,0,0.06);
+}
+
+.cta-button:active {
+    transform: translateY(-2px) scale(0.995);
+    opacity: 0.98;
+}
+
+.cta-button:focus {
+    outline: 3px solid rgba(124, 58, 237, 0.18);
+    outline-offset: 3px;
+}
+
+@media (max-width: 768px) {
+    .landing-container {
+        background-attachment: scroll;
+        background-size: cover;
+    }
+    
+    .title {
+        font-size: 2.5rem;
+    }
+    
+    .subtitle {
+        font-size: 1.2rem;
+    }
+    
+    .content {
+        padding: 40px 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .landing-container {
+        padding: 10px;
+    }
+    
+    .title {
+        font-size: 2rem;
+    }
+    
+    .subtitle {
+        font-size: 1rem;
+    }
+    
+    .description {
+        font-size: 1.1rem;
+        color: #4a5568;
+        max-width: 700px;
+        margin: 0 auto 40px;
+        line-height: 1.6;
+    }
+
+    .cta-button {
+        font-size: 1rem;
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+/* Load Pacifico for the title 'Umbrella' */
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');

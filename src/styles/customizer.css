@@ -1,0 +1,241 @@
+.customizer-container {
+    display: flex;
+    max-width: 1400px;
+    width: 100%;
+    gap: 60px;
+    padding: 40px;
+    align-items: center;
+    margin: 0 auto;
+    min-height: 100vh;
+}
+
+/* theme variables for upload button (used by JS that sets body.theme-... classes) */
+body.theme-pink {
+    --upload-bg: #ff1493;
+    --upload-bg-hover: #e01282;
+    --upload-shadow-color: rgba(255, 20, 147, 0.25);
+}
+
+body.theme-blue {
+    --upload-bg: #00bfff;
+    --upload-bg-hover: #5cd1fe;
+    --upload-shadow-color: rgba(0, 191, 255, 0.25);
+}
+
+body.theme-yellow {
+    --upload-bg: #e3c936;
+    --upload-bg-hover: #ffbf00;
+    --upload-shadow-color: rgba(255, 219, 18, 0.25);
+}
+
+.preview-section {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.umbrella-container {
+    position: relative;
+    width: 500px;
+    height: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#umbrellaImage {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+}
+
+#logoOverlay {
+    position: absolute;
+    left: 50%;
+    bottom: 16%; /* place logo near the lower rim where the rectangle was */
+    transform: translateX(-50%);
+    max-width: 140px; /* slightly larger to match visual rectangle */
+    max-height: 52px;
+    width: auto;
+    height: auto;
+    pointer-events: none; /* clicks pass through to upload controls */
+}
+
+.logo-hint {
+    margin-top: 20px;
+    font-size: 1rem;
+    color: rgba(0, 0, 0, 0.6);
+}
+
+.customization-panel {
+    flex: 1;
+    background: white;
+    padding: 50px 40px;
+    border-radius: 20px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+    max-width: 500px;
+}
+
+.panel-title {
+    font-size: 2.5rem;
+    color: #2d3748;
+    margin-bottom: 30px;
+    font-weight: 700;
+}
+
+.color-swatches {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 40px;
+}
+
+.color-swatch {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 3px solid transparent;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.color-swatch:hover {
+    transform: scale(1.1);
+}
+
+.color-swatch.active {
+    border-color: #2d3748;
+    box-shadow: 0 0 0 3px rgba(45, 55, 72, 0.2);
+}
+
+.color-swatch[data-color="pink"] {
+    background: #ff1493;
+}
+
+.color-swatch[data-color="blue"] {
+    background: #00bfff;
+}
+
+.color-swatch[data-color="yellow"] {
+    background: #ffd700;
+}
+
+.upload-section {
+    margin-top: 30px;
+}
+
+.section-title {
+    font-size: 1.5rem;
+    color: #2d3748;
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+.upload-description {
+    font-size: 1rem;
+    color: #4a5568;
+    margin-bottom: 5px;
+}
+
+.upload-specs {
+    font-size: 0.9rem;
+    color: #718096;
+    margin-bottom: 25px;
+}
+
+/* upload button uses CSS variables so it follows the active theme */
+.upload-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+    padding: 18px;
+    background: var(--upload-bg, #0098db);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    letter-spacing: 1px;
+}
+
+.upload-button:hover {
+    background: var(--upload-bg-hover, #0087c2);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px var(--upload-shadow-color, rgba(0, 152, 219, 0.3));
+}
+
+.logo-preview {
+    margin-top: 20px;
+    position: relative;
+    display: inline-block;
+    border: 2px solid #e2e8f0;
+    border-radius: 8px;
+    padding: 10px;
+}
+
+.logo-preview img {
+    max-width: 200px;
+    max-height: 200px;
+    display: block;
+}
+
+.remove-logo {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: #e53e3e;
+    color: white;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.remove-logo:hover {
+    background: #c53030;
+    transform: scale(1.1);
+}
+
+@media (max-width: 1024px) {
+    .customizer-container {
+        flex-direction: column;
+        gap: 40px;
+    }
+    
+    .umbrella-container {
+        width: 400px;
+        height: 400px;
+    }
+    
+    .customization-panel {
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+    .umbrella-container {
+        width: 300px;
+        height: 300px;
+    }
+    
+    .panel-title {
+        font-size: 2rem;
+    }
+    
+    .customization-panel {
+        padding: 30px 20px;
+    }
+}
