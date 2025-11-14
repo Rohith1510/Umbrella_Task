@@ -5,7 +5,8 @@
     justify-content: center;
     min-height: 100vh;
     padding: 20px;
-    background-image: url('../images/colors.jpg');
+    /* Use project-relative path for GitHub Pages project site */
+    background-image: url('/Umbrella_Task/src/images/colors.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;

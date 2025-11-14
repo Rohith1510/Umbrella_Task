@@ -29,7 +29,7 @@ export default class UmbrellaCanvas {
         // Map color to image filename (files are "Pink umbrella.png", etc.)
         const colorName = state.currentColor || 'pink';
         const capitalized = colorName.charAt(0).toUpperCase() + colorName.slice(1);
-        const umbrellaPath = `src/images/${capitalized} umbrella.png`;
+        const umbrellaPath = `/Umbrella_Task/src/images/${capitalized} umbrella.png`;
 
         if (this.umbrellaImg) {
             this.umbrellaImg.src = umbrellaPath;
