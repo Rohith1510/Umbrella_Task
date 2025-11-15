@@ -7,11 +7,10 @@ class App {
         this.appElement = document.getElementById('app');
         this.currentPage = 'landing';
         
-        // Set up routing
+        // Set up routing and run router on load so direct accesses to
+        // repository-scoped paths (e.g. /Umbrella_Task/customizer) work.
         this.setupRouting();
-        
-        // Initial render
-        this.render();
+        this.handleRoute();
     }
     
     setupRouting() {
@@ -32,7 +31,11 @@ class App {
     
     navigateTo(page) {
         this.currentPage = page;
-        window.history.pushState({}, '', `/${page}`);
+        // Use a relative path (no leading slash) so the URL stays under
+        // the repo base (for GitHub Pages project sites). For example,
+        // navigating to 'customizer' from '/Umbrella_Task/' yields
+        // '/Umbrella_Task/customizer' instead of '/customizer'.
+        window.history.pushState({}, '', `${page}`);
         this.render();
     }
     
